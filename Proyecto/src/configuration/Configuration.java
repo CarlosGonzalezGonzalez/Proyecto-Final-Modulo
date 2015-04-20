@@ -19,10 +19,12 @@ public class Configuration {
 	// Servidor
 	public final static String CREATE_TABLE_USERS = "CREATE TABLE IF NOT EXISTS usuarios"
 			+ "(nombre VARCHAR(15) PRIMARY KEY, "
-			+ "pass CARCHAR(15), "
-			+ "categoria TEXT)" + "ENGINE=InnoDB";
+			+ "pass VARCHAR(15), "
+			+ "categoria VARCHAR(15))" + "ENGINE=InnoDB";
 	// ServidorHilo
 	public final static String LOGIN = "Login";
+	// BaseDeDatos
+	public final static String BUSCAR_USUARIO = "SELECT categoria FROM usuarios WHERE usuario = ? AND pass = ?";
 	
 	
 	

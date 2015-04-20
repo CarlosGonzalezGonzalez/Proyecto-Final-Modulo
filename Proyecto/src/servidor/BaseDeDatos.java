@@ -7,10 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import configuration.Configuration;
+
 
 public class BaseDeDatos {
-	private final static String BUSCAR_USUARIO = "SELECT categoria FROM usuarios WHERE usuario = ? AND pass = ?";
-
 	private Connection conexion = null;
 	private Statement s = null;
 	int rows = 0;
@@ -42,7 +42,7 @@ public class BaseDeDatos {
 		ResultSet rs = null;
 		
 		try {
-			sentencia = conexion.prepareStatement(BUSCAR_USUARIO);
+			sentencia = conexion.prepareStatement(Configuration.BUSCAR_USUARIO);
 			sentencia.setString(1, usuario);
 			sentencia.setString(2, pass);
 			
@@ -55,6 +55,7 @@ public class BaseDeDatos {
 			System.err.println("Error SQL al consultar pregunta");
 		}
 		
+		System.out.println(categoria);
 		return categoria;
 		
 	}
