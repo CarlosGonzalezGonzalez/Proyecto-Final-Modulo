@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS usuarios
+(nombre VARCHAR(15) PRIMARY KEY,
+pass VARCHAR(15), 
+categoria TEXT);
