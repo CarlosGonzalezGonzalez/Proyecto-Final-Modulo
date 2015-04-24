@@ -16,17 +16,23 @@ public class Configuration {
 	// MiActionListenerLogin
 	public final static String USUARIO_VACIO = "usuarioVacio";
 	public final static String PASS_VACIO = "passVacio";
-	// Servidor
-	public final static String CREATE_TABLE_USERS = "CREATE TABLE IF NOT EXISTS usuarios"
-			+ "(nombre VARCHAR(15) PRIMARY KEY, "
-			+ "pass VARCHAR(15), "
-			+ "categoria VARCHAR(15))" + "ENGINE=InnoDB";
 	// ServidorHilo
 	public final static String LOGIN = "Login";
-	// BaseDeDatos
-	public final static String BUSCAR_USUARIO = "SELECT categoria FROM usuarios WHERE usuario = ? AND pass = ?";
-	
-	
+	public final static String MINISTRO = "ministro";
+	public final static String DIRECTOR = "director";
+	public final static String PROFESOR = "profesor";
+	public final static String PADRES = "padres";
+	// InterfazMinistro
+	public final static String TITULO_MINISTRO = "tituloMinistro";
+	public final static String TEXTO_CREAR_DIRECTOR = "textoCrearDirector";
+	public final static String TEXTO_MODIFICAR_DIRECTOR = "textoModificarDirector";
+	public final static String TEXTO_ELIMINAR_DIRECTOR = "textoEliminarDirector";
+	public final static String TEXTO_VER_NOTAS = "textoVerNotas";
+	// MiInterfazMinistroListener
+	public final static String CREAR_DIRECTOR = "Crear director";
+	public final static String MODIFICAR_DIRECTOR = "Modificar director";
+	public final static String ELIMINAR_DIRECTOR = "Eliminar director";
+	public final static String VER_NOTAS = "Ver notas";
 	
 	Properties properties = null;
 	

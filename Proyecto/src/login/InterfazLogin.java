@@ -37,7 +37,7 @@ public class InterfazLogin extends JFrame {
 			}
 		});
 	}
-
+/*
 	/**
 	 * Create the frame.
 	 */
@@ -77,6 +77,7 @@ public class InterfazLogin extends JFrame {
 		panelBotones.add(botonCancelar);
 		
 		MiActionListenerLogin mall = new MiActionListenerLogin(this,usuario,password);
-		
+		botonAceptar.addActionListener(mall);
+		botonCancelar.addActionListener(mall);
 	}
 }

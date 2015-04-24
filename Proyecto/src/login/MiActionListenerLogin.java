@@ -27,6 +27,7 @@ public class MiActionListenerLogin implements ActionListener{
 	
 	private String usuario;
 	private String pass;
+	private char[] textoPass;
 	
 	public MiActionListenerLogin(JFrame f,JTextField usuarioField,JPasswordField passField){
 		this.frame = f;
@@ -46,7 +47,10 @@ public class MiActionListenerLogin implements ActionListener{
 		        PrintWriter salida = null;
 		        
 		        usuario = usuarioField.getText();
-		        pass = passField.getSelectedText();
+		        textoPass = passField.getPassword();
+		        for(char c : textoPass){
+					pass += c;
+				}
 		        
 		        if(usuario.equals("")){ // Si no se ha rellenado el campo usuario
 		        	JOptionPane.showMessageDialog(frame, Configuration.getInstance().getProperty(Configuration.USUARIO_VACIO));
@@ -65,6 +69,7 @@ public class MiActionListenerLogin implements ActionListener{
 			            // Utilizaremos "/" como separador de parametros
 			            salida.println(Configuration.getInstance().getProperty(Configuration.TITULO_LOGIN) +
 			            		"/" + usuario + "/" + pass);
+			            frame.dispose();
 			        	
 			        } catch (UnknownHostException ex) {
 			            System.out.println("Servidor no encontrado");

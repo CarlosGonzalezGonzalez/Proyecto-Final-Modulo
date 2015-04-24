@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import javax.swing.JOptionPane;
+
+import ministro.InterfazMinistro;
 import configuration.Configuration;
 
 public class ServidorHilo extends Thread{
@@ -33,8 +36,21 @@ public class ServidorHilo extends Thread{
 	        switch(parametros[0]){
 	        	case Configuration.LOGIN:
 	        		String categoria = bd.buscarCategoria(parametros[1],parametros[2]);
-	        		System.out.println(categoria);
+	        		categoria = categoria.toLowerCase();
+	        		// Dependiendo del usuario logeado cargaremos un cliente u otro
+	        		switch(categoria){
+	        			case Configuration.MINISTRO:
+	        				InterfazMinistro ministroView = new InterfazMinistro();
+	        				break;
+	        			case Configuration.DIRECTOR:
+	        				break;
+	        			case Configuration.PROFESOR:
+	        				break;
+	        			case Configuration.PADRES:
+	        				break;
+	        		}
 	        		break;
+	        	
 	        }
 	        
 		} catch (IOException ioe) {

@@ -11,6 +11,8 @@ import configuration.Configuration;
 
 
 public class BaseDeDatos {
+	private final static String BUSCAR_USUARIO = "SELECT categoria FROM usuarios WHERE nombre = ? AND pass = ?";
+	
 	private Connection conexion = null;
 	private Statement s = null;
 	int rows = 0;
@@ -42,7 +44,7 @@ public class BaseDeDatos {
 		ResultSet rs = null;
 		
 		try {
-			sentencia = conexion.prepareStatement(Configuration.BUSCAR_USUARIO);
+			sentencia = conexion.prepareStatement(BUSCAR_USUARIO);
 			sentencia.setString(1, usuario);
 			sentencia.setString(2, pass);
 			
@@ -52,10 +54,10 @@ public class BaseDeDatos {
 				categoria = rs.getString(1);
 			}
 		} catch (SQLException e) {
-			System.err.println("Error SQL al consultar pregunta");
+			System.err.println("La combinacion de usuario y contraseña no es correcta");
+			System.err.println(e.getMessage());
 		}
 		
-		System.out.println(categoria);
 		return categoria;
 		
 	}
