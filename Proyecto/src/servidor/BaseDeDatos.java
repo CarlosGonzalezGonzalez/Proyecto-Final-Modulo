@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import configuration.Configuration;
 
@@ -14,6 +15,8 @@ public class BaseDeDatos {
 	private final static String BUSCAR_USUARIO = "SELECT categoria FROM usuarios WHERE nombre = ? AND pass = ?";
 	private final static String CREAR_USUARIO = "INSERT INTO usuarios(nombre,pass,categoria) VALUES (?,?,?)";
 	private final static String CREAR_DIRECTOR = "INSERT INTO directores(nombre,apellidos,comunidad) VALUES (?,?,?)";
+	private final static String BUSCAR_DIRECTOR = "SELECT * FROM directores WHERE id = ?";
+	private final static String BUSCAR_PASS = "SELECT pass FROM usuarios WHERE nombre = ?";
 	
 	private Connection conexion = null;
 	private Statement s = null;
@@ -76,7 +79,7 @@ public class BaseDeDatos {
 			
 		} catch (SQLException e) {
 			System.err.println("Error SQL al crear usuario");
-			e.getMessage();
+			System.err.println(e.getMessage());
 		}
 	}
 	
@@ -92,7 +95,62 @@ public class BaseDeDatos {
 			
 		} catch (SQLException e) {
 			System.err.println("Error SQL al crear director");
-			e.getMessage();
+			System.err.println(e.getMessage());
 		}
 	}
+	
+	public String buscarDirector(String id){
+		PreparedStatement sentencia = null;
+		ResultSet rs = null;
+		boolean encontrado = false;
+		String datos = " " + "/";
+		
+		try{
+			sentencia = conexion.prepareStatement(BUSCAR_DIRECTOR);
+			sentencia.setInt(1,Integer.parseInt(id));
+			
+			rs = sentencia.executeQuery();
+			
+			if(rs.next()){
+				encontrado = true;
+			}
+			
+			if(encontrado){
+				datos =  String.valueOf(rs.getInt(1)) + "/" + rs.getString(2) +
+						"/" + rs.getString(3) + "/" + rs.getString(4);
+				
+				datos = buscarPass(datos,rs.getString(2));
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("Error SQL al buscar director");
+			System.err.println(e.getMessage());
+		}
+		
+		return datos;
+		
+	}
+	
+	public String buscarPass(String datos,String nombre){
+		PreparedStatement sentencia = null;
+		ResultSet rs = null;
+		
+		try{
+			sentencia = conexion.prepareStatement(BUSCAR_PASS);
+			sentencia.setString(1,nombre);
+			
+			rs = sentencia.executeQuery();
+			
+			if(rs.next()){
+				datos += "/" + rs.getString(1);
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("Error SQL al buscar director");
+			System.err.println(e.getMessage());
+		}
+		
+		return datos;
+	}
+	
 }

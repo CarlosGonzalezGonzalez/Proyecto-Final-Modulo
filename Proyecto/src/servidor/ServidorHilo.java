@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -62,6 +63,14 @@ public class ServidorHilo extends Thread{
 	        		
 	        		bd.crearUsuario(parametros[3], parametros[4], "director");
 	        		bd.crearDirector(parametros[1], parametros[2], parametros[5]);
+	        		break;
+	        	case Configuration.BUSCARDIRECTOR:
+	        		/*
+	        		  parametros[1] --> id
+	        		*/
+	        		String datos = bd.buscarDirector(parametros[1]);
+	        		
+	        		salida.println(datos);
 	        		break;
 	        }
 	        

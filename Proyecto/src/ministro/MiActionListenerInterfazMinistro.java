@@ -26,6 +26,8 @@ public class MiActionListenerInterfazMinistro implements ActionListener{
 				icd.setVisible(true);
 				break;
 			case Configuration.MODIFICAR_DIRECTOR:
+				InterfazBuscarDirector ibd = new InterfazBuscarDirector();
+				ibd.setVisible(true);
 				break;
 			case Configuration.ELIMINAR_DIRECTOR:
 				break;

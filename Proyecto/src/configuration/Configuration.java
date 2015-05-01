@@ -20,6 +20,7 @@ public class Configuration {
 	public final static String LOGIN = "Login";
 	public final static String MINISTRO = "ministro";
 	public final static String CREARDIRECTOR = "Crear Director";
+	public final static String BUSCARDIRECTOR = "Buscar director";
 	public final static String DIRECTOR = "director";
 	public final static String PROFESOR = "profesor";
 	public final static String PADRES = "padres";
@@ -42,6 +43,16 @@ public class Configuration {
 	// MiActionListenerCrearDirector
 	public final static String COMPLETAR_DATOS = "completarDatos";
 	public final static String DIRECTOR_CREADO = "directorCreado";
+	// InterfazBuscarDirector
+	public final static String TITULO_BUCAR_DIRECTOR = "tituloBuscar";
+	public final static String TEXTO_BUSCAR_DIRECTOR = "textoBuscarDirector";
+	public final static String TEXTO_BUSCAR = "textoBuscar";
+	// MiActionListenerBuscar
+	public final static String COMPLETAR_ID = "completarId";
+	public final static String ID_NO_VALIDO = "idNoValido";
+	// InterfazModificarDirector
+	public final static String TITULO_MODIFICAR_DIRECTOR = "tituloModificarDirector";
+	public final static String TEXTO_ID = "textoId";
 	
 	Properties properties = null;
 	
