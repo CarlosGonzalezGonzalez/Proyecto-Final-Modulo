@@ -14,6 +14,7 @@ public class Servidor {
 	private final static String CREATE_TABLE_DIRECTORES = "CREATE TABLE IF NOT EXISTS directores "
 			+ "(id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,"
 			+ "nombre VARCHAR(15), "
+			+ "apellidos VARCHAR(35), "
 			+ "comunidad VARCHAR(40))" + "ENGINE=InnoDB";
 	
 	
@@ -29,6 +30,7 @@ public class Servidor {
 		Socket s1 = null;
 		try {
 			ServerSocket ss1 = new ServerSocket(5000);
+			System.out.println("Arrancado");
 			
 			while (true) {
 				s1 = ss1.accept();

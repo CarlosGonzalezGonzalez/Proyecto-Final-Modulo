@@ -12,6 +12,8 @@ import configuration.Configuration;
 
 public class BaseDeDatos {
 	private final static String BUSCAR_USUARIO = "SELECT categoria FROM usuarios WHERE nombre = ? AND pass = ?";
+	private final static String CREAR_USUARIO = "INSERT INTO usuarios(nombre,pass,categoria) VALUES (?,?,?)";
+	private final static String CREAR_DIRECTOR = "INSERT INTO directores(nombre,apellidos,comunidad) VALUES (?,?,?)";
 	
 	private Connection conexion = null;
 	private Statement s = null;
@@ -62,4 +64,35 @@ public class BaseDeDatos {
 		
 	}
 	
+	public void crearUsuario(String usuario,String pass,String categoria){
+		PreparedStatement sentencia = null;
+		try{			
+			sentencia = conexion.prepareStatement(CREAR_USUARIO);
+			sentencia.setString(1, usuario);
+			sentencia.setString(2, pass);
+			sentencia.setString(3, categoria);
+			
+			int i = sentencia.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.err.println("Error SQL al crear usuario");
+			e.getMessage();
+		}
+	}
+	
+	public void crearDirector(String nombre,String apellidos,String comunidad){
+		PreparedStatement sentencia = null;
+		try{
+			sentencia = conexion.prepareStatement(CREAR_DIRECTOR);
+			sentencia.setString(1, nombre);
+			sentencia.setString(2, apellidos);
+			sentencia.setString(3, comunidad);
+			
+			int i = sentencia.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.err.println("Error SQL al crear director");
+			e.getMessage();
+		}
+	}
 }

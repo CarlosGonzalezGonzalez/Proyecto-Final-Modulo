@@ -19,6 +19,7 @@ public class Configuration {
 	// ServidorHilo
 	public final static String LOGIN = "Login";
 	public final static String MINISTRO = "ministro";
+	public final static String CREARDIRECTOR = "Crear Director";
 	public final static String DIRECTOR = "director";
 	public final static String PROFESOR = "profesor";
 	public final static String PADRES = "padres";
@@ -28,11 +29,19 @@ public class Configuration {
 	public final static String TEXTO_MODIFICAR_DIRECTOR = "textoModificarDirector";
 	public final static String TEXTO_ELIMINAR_DIRECTOR = "textoEliminarDirector";
 	public final static String TEXTO_VER_NOTAS = "textoVerNotas";
-	// MiInterfazMinistroListener
+	// MiActionsListenerInterfazMinistro
 	public final static String CREAR_DIRECTOR = "Crear director";
 	public final static String MODIFICAR_DIRECTOR = "Modificar director";
 	public final static String ELIMINAR_DIRECTOR = "Eliminar director";
 	public final static String VER_NOTAS = "Ver notas";
+	// InterfazCrearDirector
+	public final static String TITULO_CREAR_DIRECTOR = "tituloCrearDirector";
+	public final static String TEXTO_NOMBRE = "textoNombre";
+	public final static String TEXTO_APELLIDOS = "textoApellidos"; 
+	public final static String TEXTO_COMUNIDAD = "textoComunidad";
+	// MiActionListenerCrearDirector
+	public final static String COMPLETAR_DATOS = "completarDatos";
+	public final static String DIRECTOR_CREADO = "directorCreado";
 	
 	Properties properties = null;
 	

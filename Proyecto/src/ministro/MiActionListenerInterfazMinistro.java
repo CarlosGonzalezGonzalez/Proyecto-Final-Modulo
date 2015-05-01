@@ -8,11 +8,11 @@ import javax.swing.JFrame;
 
 import configuration.Configuration;
 
-public class MiIntefazMinistroListener implements ActionListener{
+public class MiActionListenerInterfazMinistro implements ActionListener{
 
 	private JFrame f;
 	
-	public MiIntefazMinistroListener(JFrame frame){
+	public MiActionListenerInterfazMinistro(JFrame frame){
 		this.f = frame;
 	}
 	
@@ -22,6 +22,8 @@ public class MiIntefazMinistroListener implements ActionListener{
 		
 		switch(boton.getText()){
 			case Configuration.CREAR_DIRECTOR:
+				InterfazCrearDirector icd = new InterfazCrearDirector();
+				icd.setVisible(true);
 				break;
 			case Configuration.MODIFICAR_DIRECTOR:
 				break;
@@ -31,7 +33,5 @@ public class MiIntefazMinistroListener implements ActionListener{
 				break;
 				
 		}
-		
 	}
-
 }

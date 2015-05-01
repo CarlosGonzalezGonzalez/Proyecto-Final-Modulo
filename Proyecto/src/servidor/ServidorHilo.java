@@ -41,6 +41,7 @@ public class ServidorHilo extends Thread{
 	        		switch(categoria){
 	        			case Configuration.MINISTRO:
 	        				InterfazMinistro ministroView = new InterfazMinistro();
+	        				ministroView.setVisible(true);
 	        				break;
 	        			case Configuration.DIRECTOR:
 	        				break;
@@ -50,7 +51,18 @@ public class ServidorHilo extends Thread{
 	        				break;
 	        		}
 	        		break;
-	        	
+	        	case Configuration.CREARDIRECTOR:
+	        		/*
+	        		  parametros[1] --> nombre
+	        		  parametros[2] --> apellidos
+	        		  parametros[3] --> usuario
+	        		  parametros[4] --> pass
+	        		  parametros[5] --> comunidad
+	        		*/	        		
+	        		
+	        		bd.crearUsuario(parametros[3], parametros[4], "director");
+	        		bd.crearDirector(parametros[1], parametros[2], parametros[5]);
+	        		break;
 	        }
 	        
 		} catch (IOException ioe) {

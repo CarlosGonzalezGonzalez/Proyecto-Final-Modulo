@@ -28,13 +28,12 @@ public class InterfazMinistro extends JFrame{
         cargarOeste();
         
         // Listeners
-        MiIntefazMinistroListener miml = new MiIntefazMinistroListener(this);
+        MiActionListenerInterfazMinistro miml = new MiActionListenerInterfazMinistro(this);
         btnCrearDirector.addActionListener(miml);
         btnModificarDirector.addActionListener(miml);
         btnEliminarDirector.addActionListener(miml);
         btnVerNotas.addActionListener(miml);
 		
-		this.setVisible(true);
 	}
 	
 	private void cargarOeste(){
