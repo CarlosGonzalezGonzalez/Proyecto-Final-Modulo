@@ -21,8 +21,6 @@ public class InterfazModificarDirector extends JFrame{
 	JTextField apellidosField;
 	JLabel lblComunidad;
 	JTextField comunidadField;
-	JLabel lblPass;
-	JTextField passField;
 	JButton btnAceptar;
 	JButton btnCancelar;
 	
@@ -34,7 +32,7 @@ public class InterfazModificarDirector extends JFrame{
 		  datos[3] --> comunidad
 		  datos[4] --> pass
 		*/
-		super(Configuration.getInstance().getProperty(Configuration.TEXTO_MODIFICAR_DIRECTOR));
+		super(Configuration.getInstance().getProperty(Configuration.TITULO_MODIFICAR_DIRECTOR));
 		
 		this.setSize(600,200);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -48,14 +46,17 @@ public class InterfazModificarDirector extends JFrame{
 		this.apellidosField = new JTextField(datos[2]);
 		this.lblComunidad = new JLabel(Configuration.getInstance().getProperty(Configuration.TEXTO_COMUNIDAD));
 		this.comunidadField = new JTextField(datos[3]);
-		this.lblPass = new JLabel(Configuration.getInstance().getProperty(Configuration.TEXTO_PASSWORD));
-		this.passField = new JTextField(datos[4]);
 		this.btnAceptar = new JButton(Configuration.getInstance().getProperty(Configuration.TEXTO_ACEPTAR));
 		this.btnCancelar = new JButton(Configuration.getInstance().getProperty(Configuration.TEXTO_CANCELAR));
 		
 		cargarNorte();
 		cargarCentro();
 		cargarSur();
+		
+		MiActionListenerInterfazModificarDirector malimd = new MiActionListenerInterfazModificarDirector(this,
+				nombreField,apellidosField,comunidadField,datos[0]);
+		btnAceptar.addActionListener(malimd);
+		btnCancelar.addActionListener(malimd);
 	}
 
 	public void cargarNorte(){
@@ -89,8 +90,6 @@ public class InterfazModificarDirector extends JFrame{
 		
 		JPanel subPanel4 = new JPanel();
 		subPanel4.setLayout(new GridLayout(1,2));
-		subPanel4.add(lblPass);
-		subPanel4.add(passField);
 		
 		panel.add(subPanel1);
 		panel.add(subPanel2);

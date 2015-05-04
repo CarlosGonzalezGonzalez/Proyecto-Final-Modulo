@@ -30,6 +30,8 @@ public class MiActionListenerInterfazMinistro implements ActionListener{
 				ibd.setVisible(true);
 				break;
 			case Configuration.ELIMINAR_DIRECTOR:
+				InterfazEliminarDirector ied = new InterfazEliminarDirector();
+				ied.setVisible(true);
 				break;
 			case Configuration.VER_NOTAS:
 				break;

@@ -72,6 +72,32 @@ public class ServidorHilo extends Thread{
 	        		
 	        		salida.println(datos);
 	        		break;
+	        	case Configuration.MODIFICARDIRECTOR:
+	        		/*
+	        		  parametros[1] --> id
+	        		  parametros[2] --> nombre
+	        		  parametros[3] --> apellidos
+	        		  parametros[4] --> comunidad
+	        		*/
+	        		
+	        		bd.modificarDirector(Integer.parseInt(parametros[1]),parametros[2],
+	        				parametros[3],parametros[4]);
+	        		
+	        		break;
+	        	case Configuration.ELIMINARDIRECTOR:
+	        		/*
+	        		  parametros[1] --> id
+	        		*/
+	        		datos = bd.buscarDirector(parametros[1]);
+	        		salida.println(datos);
+	        		
+	        		String seguir = entrada.readLine();
+	        		
+	        		if(seguir.equalsIgnoreCase("continuar")){
+	        			bd.eliminarDirector(datos);
+	        		}
+	        		
+	        		break;
 	        }
 	        
 		} catch (IOException ioe) {

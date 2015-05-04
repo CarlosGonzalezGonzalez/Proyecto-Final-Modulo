@@ -21,6 +21,8 @@ public class Configuration {
 	public final static String MINISTRO = "ministro";
 	public final static String CREARDIRECTOR = "Crear Director";
 	public final static String BUSCARDIRECTOR = "Buscar director";
+	public final static String MODIFICARDIRECTOR = "Modificar director";
+	public final static String ELIMINARDIRECTOR = "Eliminar director";
 	public final static String DIRECTOR = "director";
 	public final static String PROFESOR = "profesor";
 	public final static String PADRES = "padres";
@@ -53,6 +55,10 @@ public class Configuration {
 	// InterfazModificarDirector
 	public final static String TITULO_MODIFICAR_DIRECTOR = "tituloModificarDirector";
 	public final static String TEXTO_ID = "textoId";
+	// InterfazEliminarDirector
+	public final static String TITULO_ELIMINAR_DIRECTOR = "tituloEliminarDirector";
+	public final static String TEXTO_ELIMINAR = "textoEliminar";
+	public final static String DIRECTOR_ELIMINADO = "directorEliminado";
 	
 	Properties properties = null;
 	

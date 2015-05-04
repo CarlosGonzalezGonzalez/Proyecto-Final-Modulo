@@ -17,6 +17,10 @@ public class BaseDeDatos {
 	private final static String CREAR_DIRECTOR = "INSERT INTO directores(nombre,apellidos,comunidad) VALUES (?,?,?)";
 	private final static String BUSCAR_DIRECTOR = "SELECT * FROM directores WHERE id = ?";
 	private final static String BUSCAR_PASS = "SELECT pass FROM usuarios WHERE nombre = ?";
+	private final static String MODIFICAR_DIRECTOR = "UPDATE directores SET nombre = ?,apellidos = ?,"
+			+ "comunidad = ? WHERE id = ?";
+	private final static String BORRAR_DIRECTOR_USUARIO = "DELETE FROM usuarios WHERE nombre = ?";
+	private final static String BORRAR_DIRECTOR = "DELETE FROM directores WHERE id = ?";
 	
 	private Connection conexion = null;
 	private Statement s = null;
@@ -119,7 +123,6 @@ public class BaseDeDatos {
 				datos =  String.valueOf(rs.getInt(1)) + "/" + rs.getString(2) +
 						"/" + rs.getString(3) + "/" + rs.getString(4);
 				
-				datos = buscarPass(datos,rs.getString(2));
 			}
 			
 		} catch (SQLException e) {
@@ -131,26 +134,43 @@ public class BaseDeDatos {
 		
 	}
 	
-	public String buscarPass(String datos,String nombre){
+	public void modificarDirector(int id,String nombre,String apellidos,String comunidad){
 		PreparedStatement sentencia = null;
-		ResultSet rs = null;
 		
 		try{
-			sentencia = conexion.prepareStatement(BUSCAR_PASS);
-			sentencia.setString(1,nombre);
+			sentencia = conexion.prepareStatement(MODIFICAR_DIRECTOR);
+			sentencia.setString(1, nombre);
+			sentencia.setString(2,apellidos);
+			sentencia.setString(3,comunidad);
+			sentencia.setInt(4, id);
 			
-			rs = sentencia.executeQuery();
-			
-			if(rs.next()){
-				datos += "/" + rs.getString(1);
-			}
+			int i = sentencia.executeUpdate();
 			
 		} catch (SQLException e) {
-			System.err.println("Error SQL al buscar director");
+			System.err.println("Error SQL al modificar director");
 			System.err.println(e.getMessage());
 		}
+	}
+	
+	public void eliminarDirector(String datos){
+		PreparedStatement sentencia = null;
+		String[] valores = datos.split("/") ;
 		
-		return datos;
+		try{
+			sentencia = conexion.prepareStatement(BORRAR_DIRECTOR_USUARIO);
+			sentencia.setString(1, valores[1]);
+			
+			int i = sentencia.executeUpdate();
+			
+			sentencia = conexion.prepareStatement(BORRAR_DIRECTOR);
+			sentencia.setInt(1, Integer.parseInt(valores[0]));
+			
+			i = sentencia.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.err.println("Error SQL al eliminar director");
+			System.err.println(e.getMessage());
+		}
 	}
 	
 }
