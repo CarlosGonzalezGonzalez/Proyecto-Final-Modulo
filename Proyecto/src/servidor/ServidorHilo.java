@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import ministro.InterfazMinistro;
+import ministro.interfaces.InterfazMinistro;
 import configuration.Configuration;
 
 public class ServidorHilo extends Thread{

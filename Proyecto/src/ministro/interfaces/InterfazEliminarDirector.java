@@ -1,4 +1,4 @@
-package ministro;
+package ministro.interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -10,22 +10,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import ministro.listeners.MiActionListenerEliminar;
 import configuration.Configuration;
 
-public class InterfazBuscarDirector extends JFrame{
+public class InterfazEliminarDirector extends JFrame{
 	
-	JLabel lblBuscar;
+	JLabel lblEliminar;
 	JTextField idField;
-	JButton btnBuscar;
-
-	public InterfazBuscarDirector(){
-		super(Configuration.getInstance().getProperty(Configuration.TITULO_BUCAR_DIRECTOR));
+	JButton btnEliminar;
+	
+	public InterfazEliminarDirector(){
+		super(Configuration.getInstance().getProperty(Configuration.TITULO_ELIMINAR_DIRECTOR));
 		this.setSize(350, 150);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		this.lblBuscar = new JLabel(Configuration.getInstance().getProperty(Configuration.TEXTO_BUSCAR_DIRECTOR));
+		this.lblEliminar = new JLabel(Configuration.getInstance().getProperty(Configuration.TEXTO_BUSCAR_DIRECTOR));
 		this.idField = new JTextField();
-		this.btnBuscar = new JButton(Configuration.getInstance().getProperty(Configuration.TEXTO_BUSCAR));
+		this.btnEliminar = new JButton(Configuration.getInstance().getProperty(Configuration.TEXTO_ELIMINAR));
 		
 		BorderLayout bl = new BorderLayout();
         this.setLayout(bl);
@@ -33,15 +34,15 @@ public class InterfazBuscarDirector extends JFrame{
         cargarCentro();
         cargarSur();
         
-        MiActionListenerBuscar malb = new MiActionListenerBuscar(this,idField);
-        btnBuscar.addActionListener(malb);
+        MiActionListenerEliminar malb = new MiActionListenerEliminar(this,idField);
+        btnEliminar.addActionListener(malb);
 	}
 	
 	private void cargarCentro(){
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(1,2));
 		
-		panel.add(lblBuscar);
+		panel.add(lblEliminar);
 		panel.add(idField);
 		
 		this.getContentPane().add(panel, BorderLayout.CENTER);
@@ -51,7 +52,7 @@ public class InterfazBuscarDirector extends JFrame{
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout());
 		
-		panel.add(btnBuscar);
+		panel.add(btnEliminar);
 		
 		this.getContentPane().add(panel,BorderLayout.SOUTH);
 	}

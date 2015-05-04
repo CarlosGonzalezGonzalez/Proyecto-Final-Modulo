@@ -1,4 +1,4 @@
-package ministro;
+package ministro.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +11,7 @@ import java.net.UnknownHostException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import configuration.Configuration;
@@ -61,7 +62,8 @@ public class MiActionListenerInterfazModificarDirector implements ActionListener
 					salida.println(Configuration.getInstance().getProperty(Configuration.TITULO_MODIFICAR_DIRECTOR) + "/"
 							+ id + "/" + nombre + "/" + apellidos + "/" + comunidad);
 					
-					
+					JOptionPane.showMessageDialog(frame, Configuration.getInstance().getProperty(Configuration.DIRECTOR_MODIFICADO));
+					frame.dispose();
 				} catch (UnknownHostException ex) {
 		            System.out.println("Servidor no encontrado");
 		        } catch (IOException ex) {

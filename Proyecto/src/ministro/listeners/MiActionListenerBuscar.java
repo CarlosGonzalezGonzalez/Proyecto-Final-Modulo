@@ -1,4 +1,4 @@
-package ministro;
+package ministro.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import ministro.interfaces.InterfazModificarDirector;
 import configuration.Configuration;
 
 public class MiActionListenerBuscar implements ActionListener{
@@ -50,6 +51,7 @@ public class MiActionListenerBuscar implements ActionListener{
 				}else{
 					InterfazModificarDirector imd = new InterfazModificarDirector(datos);
 					imd.setVisible(true);
+					frame.dispose();
 				}
 				
 			} catch (UnknownHostException ex) {

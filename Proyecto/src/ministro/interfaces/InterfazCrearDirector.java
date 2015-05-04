@@ -1,4 +1,4 @@
-package ministro;
+package ministro.interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import ministro.listeners.MiActionListenerCrearDirector;
 import configuration.Configuration;
 
 public class InterfazCrearDirector extends JFrame{

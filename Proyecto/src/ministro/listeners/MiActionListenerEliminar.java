@@ -1,4 +1,4 @@
-package ministro;
+package ministro.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -52,7 +52,7 @@ public class MiActionListenerEliminar implements ActionListener {
 					salida.println("salir");
 					JOptionPane.showMessageDialog(frame, Configuration.getInstance().getProperty(Configuration.ID_NO_VALIDO));
 				}
-				
+				frame.dispose();
 			} catch (UnknownHostException ex) {
 				System.out.println("Servidor no encontrado");
 			} catch (IOException ex) {

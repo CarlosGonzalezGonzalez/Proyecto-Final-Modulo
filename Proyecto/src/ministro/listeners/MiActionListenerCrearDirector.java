@@ -1,4 +1,4 @@
-package ministro;
+package ministro.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

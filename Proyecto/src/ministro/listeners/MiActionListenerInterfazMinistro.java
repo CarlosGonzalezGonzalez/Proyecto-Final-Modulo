@@ -1,4 +1,4 @@
-package ministro;
+package ministro.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import ministro.interfaces.InterfazBuscarDirector;
+import ministro.interfaces.InterfazCrearDirector;
+import ministro.interfaces.InterfazEliminarDirector;
 import configuration.Configuration;
 
 public class MiActionListenerInterfazMinistro implements ActionListener{

@@ -1,4 +1,4 @@
-package ministro;
+package ministro.interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import ministro.listeners.MiActionListenerInterfazMinistro;
 import configuration.Configuration;
 
 public class InterfazMinistro extends JFrame{
