@@ -21,7 +21,7 @@ public class InterfazMinistro extends JFrame{
 	public InterfazMinistro(){
 		super(Configuration.getInstance().getProperty(Configuration.TITULO_MINISTRO));
 		this.setSize(800, 500);
-		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		BorderLayout bl = new BorderLayout();
         this.setLayout(bl);

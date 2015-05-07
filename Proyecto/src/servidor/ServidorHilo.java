@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import ministro.interfaces.InterfazMinistro;
 import configuration.Configuration;
+import directores.interfaces.InterfazDirector;
 
 public class ServidorHilo extends Thread{
 	
@@ -45,10 +46,10 @@ public class ServidorHilo extends Thread{
 	        				ministroView.setVisible(true);
 	        				break;
 	        			case Configuration.DIRECTOR:
+	        				InterfazDirector directorView = new InterfazDirector();
+	        				directorView.setVisible(true);
 	        				break;
 	        			case Configuration.PROFESOR:
-	        				break;
-	        			case Configuration.PADRES:
 	        				break;
 	        		}
 	        		break;
@@ -98,6 +99,16 @@ public class ServidorHilo extends Thread{
 	        		}
 	        		
 	        		break;
+	        	case Configuration.CREARPROFESOR:
+	        		/*
+	        		  parametros[1] --> nombre
+	        		  parametros[2] --> apellidos
+	        		  parametros[3] --> idDirector
+	        		  parametros[4] --> usuario
+	        		  parametros[5] --> pass
+	        		*/
+	        		bd.crearUsuario(parametros[4], parametros[5], "profesor");
+	        		bd.crearProfesor(parametros[1],parametros[2],Integer.parseInt(parametros[3]));
 	        }
 	        
 		} catch (IOException ioe) {

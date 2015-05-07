@@ -15,6 +15,7 @@ public class BaseDeDatos {
 	private final static String BUSCAR_USUARIO = "SELECT categoria FROM usuarios WHERE nombre = ? AND pass = ?";
 	private final static String CREAR_USUARIO = "INSERT INTO usuarios(nombre,pass,categoria) VALUES (?,?,?)";
 	private final static String CREAR_DIRECTOR = "INSERT INTO directores(nombre,apellidos,comunidad) VALUES (?,?,?)";
+	private final static String CREAR_PROFESOR = "INSERT INTO profesores(nombre,apellidos,iddirector) VALUES (?,?,?)";
 	private final static String BUSCAR_DIRECTOR = "SELECT * FROM directores WHERE id = ?";
 	private final static String BUSCAR_PASS = "SELECT pass FROM usuarios WHERE nombre = ?";
 	private final static String MODIFICAR_DIRECTOR = "UPDATE directores SET nombre = ?,apellidos = ?,"
@@ -94,6 +95,22 @@ public class BaseDeDatos {
 			sentencia.setString(1, nombre);
 			sentencia.setString(2, apellidos);
 			sentencia.setString(3, comunidad);
+			
+			int i = sentencia.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.err.println("Error SQL al crear director");
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	public void crearProfesor(String nombre,String apellidos,int idDirector){
+		PreparedStatement sentencia = null;
+		try{
+			sentencia = conexion.prepareStatement(CREAR_PROFESOR);
+			sentencia.setString(1, nombre);
+			sentencia.setString(2, apellidos);
+			sentencia.setInt(3,idDirector);
 			
 			int i = sentencia.executeUpdate();
 			
