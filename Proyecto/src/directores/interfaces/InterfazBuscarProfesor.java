@@ -1,4 +1,4 @@
-package ministro.interfaces;
+package directores.interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -10,21 +10,21 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import ministro.listeners.MiActionListenerBuscar;
 import configuration.Configuration;
+import directores.listeners.MiActionListenerBuscar;
 
-public class InterfazBuscarDirector extends JFrame{
-	
+public class InterfazBuscarProfesor extends JFrame{
+
 	JLabel lblBuscar;
 	JTextField idField;
 	JButton btnBuscar;
-
-	public InterfazBuscarDirector(){
-		super(Configuration.getInstance().getProperty(Configuration.TITULO_BUSCAR_DIRECTOR));
+	
+	public InterfazBuscarProfesor(){
+		super(Configuration.getInstance().getProperty(Configuration.TITULO_BUSCAR_PROFESOR));
 		this.setSize(350, 150);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		this.lblBuscar = new JLabel(Configuration.getInstance().getProperty(Configuration.TEXTO_BUSCAR_DIRECTOR));
+		this.lblBuscar = new JLabel(Configuration.getInstance().getProperty(Configuration.TEXTO_BUSCAR_PROFESOR));
 		this.idField = new JTextField();
 		this.btnBuscar = new JButton(Configuration.getInstance().getProperty(Configuration.TEXTO_BUSCAR));
 		

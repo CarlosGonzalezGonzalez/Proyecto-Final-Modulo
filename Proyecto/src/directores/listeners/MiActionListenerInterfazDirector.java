@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import configuration.Configuration;
+import directores.interfaces.InterfazBuscarProfesor;
 import directores.interfaces.InterfazCrearProfesor;
 
 public class MiActionListenerInterfazDirector implements ActionListener{
@@ -27,8 +28,8 @@ public class MiActionListenerInterfazDirector implements ActionListener{
 				icp.setVisible(true);
 				break;
 			case Configuration.MODIFICARPROFESOR:
-				/*InterfazBuscarProfesor ibp = new InterfazBuscarProfesor();
-				imp.setVisible(true);*/
+				InterfazBuscarProfesor ibp = new InterfazBuscarProfesor();
+				ibp.setVisible(true);
 				break;
 			case Configuration.ELIMINARPROFESOR:
 				/*InterfazEliminarProfesor iep = new InterfazEliminarProfesor();

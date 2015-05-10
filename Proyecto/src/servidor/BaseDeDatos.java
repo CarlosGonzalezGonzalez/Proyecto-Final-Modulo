@@ -13,15 +13,21 @@ import configuration.Configuration;
 
 public class BaseDeDatos {
 	private final static String BUSCAR_USUARIO = "SELECT categoria FROM usuarios WHERE nombre = ? AND pass = ?";
+	private final static String BUSCAR_DIRECTOR = "SELECT * FROM directores WHERE id = ?";
+	private final static String BUSCAR_PROFESOR = "SELECT * FROM profesores WHERE id = ?";
+	
 	private final static String CREAR_USUARIO = "INSERT INTO usuarios(nombre,pass,categoria) VALUES (?,?,?)";
 	private final static String CREAR_DIRECTOR = "INSERT INTO directores(nombre,apellidos,comunidad) VALUES (?,?,?)";
 	private final static String CREAR_PROFESOR = "INSERT INTO profesores(nombre,apellidos,iddirector) VALUES (?,?,?)";
-	private final static String BUSCAR_DIRECTOR = "SELECT * FROM directores WHERE id = ?";
-	private final static String BUSCAR_PASS = "SELECT pass FROM usuarios WHERE nombre = ?";
+
 	private final static String MODIFICAR_DIRECTOR = "UPDATE directores SET nombre = ?,apellidos = ?,"
 			+ "comunidad = ? WHERE id = ?";
+	private final static String MODIFICAR_PROFESOR = "UPDATE profesores SET nombre = ?,apellidos = ?,"
+			+ "iddirector = ? WHERE id = ?";
+	
 	private final static String BORRAR_DIRECTOR_USUARIO = "DELETE FROM usuarios WHERE nombre = ?";
 	private final static String BORRAR_DIRECTOR = "DELETE FROM directores WHERE id = ?";
+
 	
 	private Connection conexion = null;
 	private Statement s = null;
@@ -186,6 +192,55 @@ public class BaseDeDatos {
 			
 		} catch (SQLException e) {
 			System.err.println("Error SQL al eliminar director");
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	public String buscarProfesor(String id){
+		PreparedStatement sentencia = null;
+		ResultSet rs = null;
+		boolean encontrado = false;
+		String datos = " " + "/";
+		
+		try{
+			sentencia = conexion.prepareStatement(BUSCAR_PROFESOR);
+			sentencia.setInt(1,Integer.parseInt(id));
+			
+			rs = sentencia.executeQuery();
+			
+			if(rs.next()){
+				encontrado = true;
+			}
+			
+			if(encontrado){
+				datos =  String.valueOf(rs.getInt(1)) + "/" + rs.getString(2) +
+						"/" + rs.getString(3) + "/" + String.valueOf(rs.getInt(4));
+				
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("Error SQL al buscar director");
+			System.err.println(e.getMessage());
+		}
+		
+		return datos;
+		
+	}
+	
+	public void modificarProfesor(int id,String nombre,String apellidos,int idDirector){
+		PreparedStatement sentencia = null;
+		
+		try{
+			sentencia = conexion.prepareStatement(MODIFICAR_PROFESOR);
+			sentencia.setString(1, nombre);
+			sentencia.setString(2,apellidos);
+			sentencia.setInt(3,idDirector);
+			sentencia.setInt(4, id);
+			
+			int i = sentencia.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.err.println("Error SQL al modificar director");
 			System.err.println(e.getMessage());
 		}
 	}

@@ -1,4 +1,4 @@
-package ministro.interfaces;
+package directores.interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -10,29 +10,29 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import ministro.listeners.MiActionListenerInterfazModificarDirector;
 import configuration.Configuration;
+import directores.listeners.MiActionListenerInterfazModificarProfesor;
 
-public class InterfazModificarDirector extends JFrame{
+public class InterfazModificarProfesor extends JFrame{
 	
 	private JLabel lblId;
 	private JLabel lblNombre;
 	private JTextField nombreField;
 	private JLabel lblApellidos;
 	private JTextField apellidosField;
-	private JLabel lblComunidad;
-	private JTextField comunidadField;
+	private JLabel lblIdDirector;
+	private JTextField idDirectorField;
 	private JButton btnAceptar;
 	private JButton btnCancelar;
 	
-	public InterfazModificarDirector(String[] datos){
+	public InterfazModificarProfesor(String[] datos){
 		/*
 		  datos[0] --> id
 		  datos[1] --> nombre
 		  datos[2] --> apellidos
-		  datos[3] --> comunidad
+		  datos[3] --> iddirector
 		*/
-		super(Configuration.getInstance().getProperty(Configuration.TITULO_MODIFICAR_DIRECTOR));
+		super(Configuration.getInstance().getProperty(Configuration.TITULO_MODIFICAR_PROFESOR));
 		
 		this.setSize(600,200);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -44,8 +44,8 @@ public class InterfazModificarDirector extends JFrame{
 		this.nombreField = new JTextField(datos[1]);
 		this.lblApellidos = new JLabel(Configuration.getInstance().getProperty(Configuration.TEXTO_APELLIDOS));
 		this.apellidosField = new JTextField(datos[2]);
-		this.lblComunidad = new JLabel(Configuration.getInstance().getProperty(Configuration.TEXTO_COMUNIDAD));
-		this.comunidadField = new JTextField(datos[3]);
+		this.lblIdDirector = new JLabel(Configuration.getInstance().getProperty(Configuration.TEXTO_ID_DIRECTOR));
+		this.idDirectorField = new JTextField(datos[3]);
 		this.btnAceptar = new JButton(Configuration.getInstance().getProperty(Configuration.TEXTO_ACEPTAR));
 		this.btnCancelar = new JButton(Configuration.getInstance().getProperty(Configuration.TEXTO_CANCELAR));
 		
@@ -53,12 +53,12 @@ public class InterfazModificarDirector extends JFrame{
 		cargarCentro();
 		cargarSur();
 		
-		MiActionListenerInterfazModificarDirector malimd = new MiActionListenerInterfazModificarDirector(this,
-				nombreField,apellidosField,comunidadField,datos[0]);
+		MiActionListenerInterfazModificarProfesor malimd = new MiActionListenerInterfazModificarProfesor(this,
+				nombreField,apellidosField,idDirectorField,datos[0]);
 		btnAceptar.addActionListener(malimd);
 		btnCancelar.addActionListener(malimd);
 	}
-
+	
 	public void cargarNorte(){
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout());
@@ -85,8 +85,8 @@ public class InterfazModificarDirector extends JFrame{
 		
 		JPanel subPanel3 = new JPanel();
 		subPanel3.setLayout(new GridLayout(1,2));
-		subPanel3.add(lblComunidad);
-		subPanel3.add(comunidadField);
+		subPanel3.add(lblIdDirector);
+		subPanel3.add(idDirectorField);
 		
 		JPanel subPanel4 = new JPanel();
 		subPanel4.setLayout(new GridLayout(1,2));
@@ -109,5 +109,4 @@ public class InterfazModificarDirector extends JFrame{
         
         this.getContentPane().add(panel,BorderLayout.SOUTH);
 	}
-	
 }

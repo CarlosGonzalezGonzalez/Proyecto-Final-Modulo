@@ -25,7 +25,7 @@ public class Configuration {
 	public final static String TEXTO_COMUNIDAD = "textoComunidad";
 	public final static String COMPLETAR_DATOS = "completarDatos";
 	public final static String DIRECTOR_CREADO = "directorCreado";
-	public final static String TITULO_BUCAR_DIRECTOR = "tituloBuscar";
+	public final static String TITULO_BUSCAR_DIRECTOR = "tituloBuscar";
 	public final static String TEXTO_BUSCAR_DIRECTOR = "textoBuscarDirector";
 	public final static String TEXTO_BUSCAR = "textoBuscar";
 	public final static String COMPLETAR_ID = "completarId";
@@ -41,8 +41,12 @@ public class Configuration {
 	public final static String TEXTO_MODIFICAR_PROFESOR = "textoModificarProfesor";
 	public final static String TEXTO_ELIMINAR_PROFESOR = "textoEliminarProfesor";
 	public final static String TITULO_CREAR_PROFESOR = "tituloCrearProfesor";
-	public final static String  TEXTO_ID_DIRECTOR = "textoIdDirector";
+	public final static String TEXTO_ID_DIRECTOR = "textoIdDirector";
 	public final static String PROFESOR_CREADO = "profesorCreado";
+	public final static String TITULO_BUSCAR_PROFESOR = "tituloBuscarProfesor";
+	public final static String TEXTO_BUSCAR_PROFESOR = "textoBuscarProfesor"; 
+	public final static String TITULO_MODIFICAR_PROFESOR = "tituloModificarProfesor";
+	public final static String TEXTO_PROFESOR_MODIFICADO = "textoProfesorModificado";
 	// Estaticos
 	public final static String LOGIN = "Login";
 	public final static String MINISTRO = "ministro";
@@ -59,6 +63,7 @@ public class Configuration {
 	public final static String CREARPROFESOR = "Crear profesor";
 	public final static String MODIFICARPROFESOR = "Modificar profesor";
 	public final static String ELIMINARPROFESOR = "Eliminar profesor";
+	public final static String BUSCARPROFESOR = "Buscar profesor";
 	
 	
 	Properties properties = null;

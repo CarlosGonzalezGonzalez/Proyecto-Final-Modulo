@@ -109,6 +109,26 @@ public class ServidorHilo extends Thread{
 	        		*/
 	        		bd.crearUsuario(parametros[4], parametros[5], "profesor");
 	        		bd.crearProfesor(parametros[1],parametros[2],Integer.parseInt(parametros[3]));
+	        		break;
+	        	case Configuration.BUSCARPROFESOR:
+	        		/*
+	        		  parametros[1] --> id
+	        		*/
+	        		datos = bd.buscarProfesor(parametros[1]);
+	        		
+	        		salida.println(datos);
+	        		break;
+	        	case Configuration.MODIFICARPROFESOR:
+	        		/*
+	        		  parametros[1] --> id
+	        		  parametros[2] --> nombre
+	        		  parametros[3] --> apellidos
+	        		  parametros[4] --> idDirector
+	        		*/
+	        		
+	        		bd.modificarProfesor(Integer.parseInt(parametros[1]), parametros[2],
+	        				parametros[3], Integer.parseInt(parametros[4]));
+	        		break;
 	        }
 	        
 		} catch (IOException ioe) {
