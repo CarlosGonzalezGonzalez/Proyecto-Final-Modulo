@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import configuration.Configuration;
 import directores.interfaces.InterfazBuscarProfesor;
 import directores.interfaces.InterfazCrearProfesor;
+import directores.interfaces.InterfazEliminarProfesor;
 
 public class MiActionListenerInterfazDirector implements ActionListener{
 
@@ -32,8 +33,8 @@ public class MiActionListenerInterfazDirector implements ActionListener{
 				ibp.setVisible(true);
 				break;
 			case Configuration.ELIMINARPROFESOR:
-				/*InterfazEliminarProfesor iep = new InterfazEliminarProfesor();
-				iep.setVisible(true);*/
+				InterfazEliminarProfesor iep = new InterfazEliminarProfesor();
+				iep.setVisible(true);
 				break;
 		}
 		

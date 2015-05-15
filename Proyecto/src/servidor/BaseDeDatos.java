@@ -27,7 +27,8 @@ public class BaseDeDatos {
 	
 	private final static String BORRAR_DIRECTOR_USUARIO = "DELETE FROM usuarios WHERE nombre = ?";
 	private final static String BORRAR_DIRECTOR = "DELETE FROM directores WHERE id = ?";
-
+	private final static String BORRAR_PROFESOR_USUARIO = "DELETE FROM usuarios WHERE NOMBRE = ?";
+	private final static String BORRAR_PROFESOR = "DELETE FROM profesores WHERE id = ?"; 
 	
 	private Connection conexion = null;
 	private Statement s = null;
@@ -121,7 +122,7 @@ public class BaseDeDatos {
 			int i = sentencia.executeUpdate();
 			
 		} catch (SQLException e) {
-			System.err.println("Error SQL al crear director");
+			System.err.println("Error SQL al crear profesor");
 			System.err.println(e.getMessage());
 		}
 	}
@@ -215,11 +216,10 @@ public class BaseDeDatos {
 			if(encontrado){
 				datos =  String.valueOf(rs.getInt(1)) + "/" + rs.getString(2) +
 						"/" + rs.getString(3) + "/" + String.valueOf(rs.getInt(4));
-				
 			}
 			
 		} catch (SQLException e) {
-			System.err.println("Error SQL al buscar director");
+			System.err.println("Error SQL al buscar profesor");
 			System.err.println(e.getMessage());
 		}
 		
@@ -240,7 +240,27 @@ public class BaseDeDatos {
 			int i = sentencia.executeUpdate();
 			
 		} catch (SQLException e) {
-			System.err.println("Error SQL al modificar director");
+			System.err.println("Error SQL al modificar profesor");
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	public void eliminarProfesor(String datos){
+		PreparedStatement sentencia = null;
+		String[] valores = datos.split("/");
+		try{
+			sentencia = conexion.prepareStatement(BORRAR_PROFESOR_USUARIO);
+			sentencia.setString(1, valores[1]);
+			
+			int i = sentencia.executeUpdate();
+			
+			sentencia = conexion.prepareStatement(BORRAR_PROFESOR);
+			sentencia.setInt(1, Integer.parseInt(valores[0]));
+			
+			i = sentencia.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.err.println("Error SQL al eliminar profesor");
 			System.err.println(e.getMessage());
 		}
 	}

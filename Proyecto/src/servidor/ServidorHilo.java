@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import profesores.interfaces.InterfazProfesor;
 import ministro.interfaces.InterfazMinistro;
 import configuration.Configuration;
 import directores.interfaces.InterfazDirector;
@@ -50,6 +51,8 @@ public class ServidorHilo extends Thread{
 	        				directorView.setVisible(true);
 	        				break;
 	        			case Configuration.PROFESOR:
+	        				InterfazProfesor profesorView = new InterfazProfesor();
+	        				profesorView.setVisible(true);
 	        				break;
 	        		}
 	        		break;
@@ -128,6 +131,19 @@ public class ServidorHilo extends Thread{
 	        		
 	        		bd.modificarProfesor(Integer.parseInt(parametros[1]), parametros[2],
 	        				parametros[3], Integer.parseInt(parametros[4]));
+	        		break;
+	        	case Configuration.ELIMINARPROFESOR:
+	        		/*
+	        		  parametros[1] --> id
+	        		*/
+	        		datos = bd.buscarProfesor(parametros[1]);
+	        		salida.println(datos);
+	        		
+	        		seguir = entrada.readLine();
+	        		
+	        		if(seguir.equalsIgnoreCase("continuar")){
+	        			bd.eliminarProfesor(datos);
+	        		}
 	        		break;
 	        }
 	        

@@ -47,6 +47,16 @@ public class Configuration {
 	public final static String TEXTO_BUSCAR_PROFESOR = "textoBuscarProfesor"; 
 	public final static String TITULO_MODIFICAR_PROFESOR = "tituloModificarProfesor";
 	public final static String TEXTO_PROFESOR_MODIFICADO = "textoProfesorModificado";
+	public final static String TITULO_ELIMINAR_PROFESOR = "tituloEliminarProfesor";
+	public final static String PROFESOR_ELIMINADO = "profesorEliminado";
+	public final static String TITULO_PROFESOR = "tituloProfesor";
+	public final static String TEXTO_CREAR_ALUMNO = "textoCrearAlumno";
+	public final static String TEXTO_MODIFICAR_ALUMNO = "textoModificarAlumno";
+	public final static String TEXTO_ELIMINAR_ALUMNO = "textoEliminarAlumno";
+	public final static String TITULO_CREAR_ALUMNO = "tituloCrearAlumno";
+	public final static String TEXTO_TELEFONO = "textoTelefono";
+	public final static String TEXTO_PADRE = "textoPadre";
+	public final static String TEXTO_MADRE =  "textoMadre";	
 	// Estaticos
 	public final static String LOGIN = "Login";
 	public final static String MINISTRO = "ministro";
@@ -64,7 +74,9 @@ public class Configuration {
 	public final static String MODIFICARPROFESOR = "Modificar profesor";
 	public final static String ELIMINARPROFESOR = "Eliminar profesor";
 	public final static String BUSCARPROFESOR = "Buscar profesor";
-	
+	public final static String CREARALUMNO = "Matricular alumno";
+	public final static String MODIFICARALUMNO = "Modificar alumno";
+	public final static String ELIMINARALUMNO = "Eliminar alumno";
 	
 	Properties properties = null;
 	
